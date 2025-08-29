@@ -4,4 +4,7 @@ export default antfu({
   typescript: true,
   astro: true,
   unocss: true,
+  stylistic: {
+    quotes: 'single',
+  },
 })
