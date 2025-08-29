@@ -6,7 +6,7 @@ import PostDate from '@/components/PostDate.astro'
 import TagList from '@/components/TagList.astro'
 import BackButton from '@/components/Widgets/BackButton.astro'
 import TOC from '@/components/Widgets/TOC.astro'
-import { allLocales, defaultLocale, moreLocales } from '@/config'
+import { defaultLocale, moreLocales } from '@/config'
 import Layout from '@/layouts/Layout.astro'
 import { checkPostSlugDuplication } from '@/utils/content'
 import { getPostDescription } from '@/utils/description'
@@ -28,7 +28,7 @@ export async function getStaticPaths() {
     const lang = post.data.lang
 
     if (!map.has(slug)) {
-      map.set(slug, new Set(lang ? [lang] : allLocales))
+      map.set(slug, new Set(lang ? [lang] : ['en']))
     }
     else if (lang) {
       map.get(slug)?.add(lang)
@@ -38,11 +38,11 @@ export async function getStaticPaths() {
   }, new Map<string, Set<string>>())
 
   // Convert Map<slug, Set<langs>> to Record<slug, langs[]> structure
-  // Sort languages according to the order defined in allLocales
+  // Convert Map<slug, Set<langs>> to Record<slug, langs[]> structure  
   const slugToLangs = Object.fromEntries(
     Array.from(slugToLangsMap.entries()).map(([slug, langs]) => [
       slug,
-      [...langs].sort((a, b) => allLocales.indexOf(a) - allLocales.indexOf(b)),
+      [...langs],
     ]),
   )
   // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

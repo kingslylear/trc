@@ -61,9 +61,8 @@ export const themeConfig: ThemeConfig = {
   global: {
     // default language
     locale: "en", // de, en, es, fr, ja, ko, pl, pt, ru, zh, zh-tw
-    // more languages
-    // not fill in the locale code above again, can be an empty array []
-    moreLocales: ["en", "es", "ja", "ru", "zh-tw"], // ['de', 'en', 'es', 'fr', 'ja', 'ko', 'pl', 'pt', 'ru', 'zh', 'zh-tw']
+    // more languages - empty for single language site
+    moreLocales: [],
     // font styles for post text
     fontStyle: "sans", // sans, serif
     // date format for posts

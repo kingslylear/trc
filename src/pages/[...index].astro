@@ -1,32 +1,17 @@
 ---
 import PostList from '@/components/PostList.astro'
-import { defaultLocale, moreLocales } from '@/config'
+import { defaultLocale } from '@/config'
 import Layout from '@/layouts/Layout.astro'
 import { getPinnedPosts, getPostsByYear } from '@/utils/content'
 
 export async function getStaticPaths() {
-  type PathItem = {
-    params: { index: string | undefined }
-    props: { lang: string }
-  }
-
-  const paths: PathItem[] = []
-
-  // Default locale
-  paths.push({
-    params: { index: undefined },
-    props: { lang: defaultLocale },
-  })
-
-  // More locales
-  moreLocales.forEach((lang: string) => {
-    paths.push({
-      params: { index: `${lang}/` },
-      props: { lang },
-    })
-  })
-
-  return paths
+  // Single language site - only default locale
+  return [
+    {
+      params: { index: undefined },
+      props: { lang: defaultLocale },
+    },
+  ]
 }
 
 const { lang } = Astro.props

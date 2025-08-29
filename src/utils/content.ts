@@ -225,9 +225,7 @@ async function _getTagSupportedLangs(tag: string) {
     'posts',
     ({ data }) => !data.draft,
   )
-  const { allLocales } = await import('@/config')
-
-  return allLocales.filter(locale =>
+  return ['en'].filter(locale =>
     posts.some(post =>
       post.data.tags?.includes(tag)
       && (post.data.lang === locale || post.data.lang === ''),

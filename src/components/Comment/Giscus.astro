@@ -1,6 +1,5 @@
 ---
-import { base, defaultLocale, themeConfig } from '@/config'
-import { giscusLocaleMap } from '@/i18n/config'
+import { base, themeConfig } from '@/config'
 
 const {
   repo = '',
@@ -22,7 +21,6 @@ const {
   is:inline
   define:vars={{
     base,
-    defaultLocale,
     repo,
     repoId,
     category,
@@ -32,7 +30,6 @@ const {
     reactionsEnabled,
     emitMetadata,
     inputPosition,
-    giscusLocaleMap,
   }}
 >
 function getThemeUrl() {
@@ -48,14 +45,6 @@ function setupGiscus() {
   const giscusContainer = document.getElementById('giscus')
   giscusContainer.innerHTML = ''
 
-  const currentPath = window.location.pathname
-  const pathWithoutBase = base && currentPath.startsWith(base)
-    ? currentPath.slice(base.length)
-    : currentPath
-
-  const lang = Object.keys(giscusLocaleMap).find(code =>
-    pathWithoutBase.startsWith(`/${code}/`),
-  ) ?? defaultLocale
 
   const dataAttributes = {
     repo,
@@ -68,7 +57,7 @@ function setupGiscus() {
     emitMetadata,
     inputPosition,
     theme: getThemeUrl(),
-    lang: giscusLocaleMap[lang],
+    lang: 'en',
   }
 
   const script = document.createElement('script')

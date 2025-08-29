@@ -9,8 +9,7 @@ import rehypeSlug from 'rehype-slug'
 import remarkDirective from 'remark-directive'
 import remarkMath from 'remark-math'
 import UnoCSS from 'unocss/astro'
-import { base, defaultLocale, themeConfig } from './src/config'
-import { langMap } from './src/i18n/config'
+import { base, themeConfig } from './src/config'
 import { rehypeCodeCopyButton } from './src/plugins/rehype-code-copy-button.mjs'
 import { rehypeExternalLinks } from './src/plugins/rehype-external-links.mjs'
 import { rehypeHeadingAnchor } from './src/plugins/rehype-heading-anchor.mjs'
@@ -35,11 +34,8 @@ export default defineConfig({
   },
   ...imageConfig,
   i18n: {
-    locales: Object.entries(langMap).map(([path, codes]) => ({
-      path,
-      codes: codes as [string, ...string[]],
-    })),
-    defaultLocale,
+    locales: [{ path: 'en', codes: ['en', 'en-US'] }],
+    defaultLocale: 'en',
   },
   integrations: [
     UnoCSS({

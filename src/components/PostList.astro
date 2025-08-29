@@ -2,7 +2,6 @@
 import type { CollectionEntry } from 'astro:content'
 import PinIcon from '@/assets/icons/pin-icon.svg'
 import PostDate from '@/components/PostDate.astro'
-import { getPostPath } from '@/i18n/path'
 import { getPostDescription } from '@/utils/description'
 import { isHomePage } from '@/utils/page'
 
@@ -36,7 +35,7 @@ export interface Props {
           <a
             class="cjk:tracking-0.02em"
             lg={isHome ? 'font-medium text-4.5' : ''}
-            href={getPostPath(slug, lang)}
+            href={`/posts/${slug}/`}
             transition:name={`post-${slug}${lang ? `-${lang}` : ''}`}
             data-disable-theme-transition
           >
