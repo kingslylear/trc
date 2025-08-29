@@ -1,0 +1,29 @@
+---
+import { getPageInfo } from '@/utils/page'
+
+const { isPost } = getPageInfo(Astro.url.pathname)
+---
+
+<div
+  class:list={[
+    isPost
+      ? `op-0 lg:op-100`
+      : 'w-75% lg:w-full',
+    'text-3.5 c-secondary font-navbar lg:text-4',
+  ]}
+  aria-hidden={isPost}
+>
+  <div class="mt-4">
+    <div class="space-y-1.5">
+      <div>
+        <div class="font-medium text-3.2 lg:text-3.6">👫 The Humans</div>
+        <div class="text-3 lg:text-3.4 italic opacity-70 mt-0.5">Dreamers, planners & DIY warriors</div>
+      </div>
+      <div>
+        <div class="font-medium text-3.2 lg:text-3.6">🐕🐕 The Dogs</div>
+        <div class="text-3 lg:text-3.4 italic opacity-70 mt-0.5">Supervisors & morale boosters</div>
+      </div>
+    </div>
+  </div>
+</div>
+
