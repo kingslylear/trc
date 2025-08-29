@@ -3,7 +3,7 @@ title: This is a test post
 description: This is a description
 published: 2025-08-29
 updated: 2025-08-29
-tags: intro
+tags: [intro]
 draft: false
 pin: 0
 ---

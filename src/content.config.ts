@@ -7,13 +7,10 @@ const posts = defineCollection({
   schema: z.object({
     // required
     title: z.string(),
-    published: z.date(),
+    published: z.coerce.date(),
     // optional
     description: z.string().optional().default(''),
-    updated: z.preprocess(
-      val => val === '' ? undefined : val,
-      z.date().optional(),
-    ),
+    updated: z.coerce.date().optional(),
     tags: z.array(z.string()).optional().default([]),
     // Advanced
     draft: z.boolean().optional().default(false),
