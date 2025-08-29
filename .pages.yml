@@ -1,37 +1,36 @@
-media:
-  input: src/content/posts/_images
-  output: /images
+media: src/content/posts/_images
 
 content:
   - name: posts
     label: Posts
     type: collection
-    path: src/content/posts/blog
-    filename: '{year}-{month}-{day}-{title}.md'
+    path: 'src/content/posts/blog'
+    view:
+      fields: [ title, published, draft ]
     fields:
       - name: title
+        label: Title
         type: string
-        required: true
       - name: description
+        label: Description
         type: string
       - name: published
+        label: Published Date
         type: date
-        required: true
       - name: updated
+        label: Updated Date
         type: date
       - name: tags
+        label: Tags
         type: list
       - name: draft
+        label: Draft
         type: boolean
         default: false
       - name: pin
+        label: Pin Priority
         type: number
         default: 0
       - name: body
+        label: Body
         type: rich-text
-        required: true
-    view:
-      fields: [title, published, tags]
-      primary: title
-      sort: [published]
-      layout: list
