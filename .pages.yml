@@ -1,3 +1,60 @@
-media: src/posts/_images
+media: src/content/posts/_images
 
+collections:
+  posts:
+    path: src/content/posts/blog
+    name: Posts
+    description: Blog posts for The Renovation Chase
+    create: true
+    fields:
+      - name: title
+        label: Post Title
+        widget: string
+        required: true
+        hint: The main title of your blog post
 
+      - name: description
+        label: Description
+        widget: text
+        required: false
+        hint: Brief summary of the post (optional)
+
+      - name: published
+        label: Published Date
+        widget: datetime
+        required: true
+        default: "{{now}}"
+        hint: When this post was published
+
+      - name: updated
+        label: Updated Date
+        widget: datetime
+        required: false
+        hint: When this post was last updated (optional)
+
+      - name: tags
+        label: Tags
+        widget: list
+        required: false
+        hint: Add tags to categorize your post
+
+      - name: draft
+        label: Draft
+        widget: boolean
+        default: false
+        hint: Mark as draft to hide from published site
+
+      - name: pin
+        label: Pin Priority
+        widget: number
+        default: 0
+        min: 0
+        max: 99
+        step: 1
+        hint: Higher numbers show first (0 = not pinned)
+
+      - name: body
+        label: Content
+        widget: markdown
+        required: true
+        hint: The main content of your blog post
