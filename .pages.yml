@@ -1,6 +1,6 @@
 media: src/content/posts/_images
 
-collections:
+content:
   posts:
     path: src/content/posts/blog
     name: Posts
