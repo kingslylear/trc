@@ -11,22 +11,28 @@ content:
       - name: title
         label: Post Title
         type: string
+        required: true
         
       - name: description
         label: Description
         type: string
+        required: false
         
       - name: published
         label: Published Date
-        type: date
+        type: datetime
+        required: true
+        default: "{{now}}"
         
       - name: updated
         label: Updated Date
-        type: date
+        type: datetime
+        required: false
         
       - name: tags
         label: Tags
         type: list
+        required: false
         
       - name: draft
         label: Draft
@@ -37,7 +43,32 @@ content:
         label: Pin Priority
         type: number
         default: 0
+        min: 0
+        max: 99
+        
+      - name: toc
+        label: Show Table of Contents
+        type: boolean
+        required: false
+        
+      - name: lang
+        label: Language
+        type: select
+        options:
+          - value: ""
+            label: Default (English)
+          - value: "en"
+            label: English
+        default: ""
+        
+      - name: abbrlink
+        label: Custom URL Slug
+        type: string
+        required: false
+        pattern: "^[a-z0-9\\-]*$"
+        hint: "Optional custom URL slug (lowercase letters, numbers, hyphens only)"
         
       - name: body
         label: Content
         type: rich-text
+        required: true

@@ -3,7 +3,7 @@ import { defineCollection, z } from 'astro:content'
 import { themeConfig } from '@/config'
 
 const posts = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/posts' }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/posts/blog' }),
   schema: z.object({
     // required
     title: z.string(),
