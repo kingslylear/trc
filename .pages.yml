@@ -4,9 +4,9 @@ content:
   - name: posts
     label: Posts
     type: collection
-    path: 'src/content/posts/blog'
+    path: "src/content/posts/blog"
     view:
-      fields: [ title, published, draft ]
+      fields: [title, published, draft]
     fields:
       - name: title
         label: Title
@@ -22,7 +22,9 @@ content:
         type: date
       - name: tags
         label: Tags
-        type: list
+        type: string
+        list:
+          min: 1
       - name: draft
         label: Draft
         type: boolean
