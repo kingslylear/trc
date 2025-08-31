@@ -4,13 +4,12 @@ export const themeConfig: ThemeConfig = {
   // SITE INFORMATION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START
   site: {
     // site title
-    title: "The Rennovation Chase",
+    title: "The Renovation Chase",
     // site subtitle
-    subtitle:
-      "A story of a couple and their dogs rennovating a home in England",
+    subtitle: "A story of a couple and their dogs renovating a home in England",
     // site description
     description:
-      "A blog featuring updates and tips around doing home rennovations and DIY in England",
+      "A blog featuring updates and tips around doing home renovations and DIY in England",
     // use i18n title/subtitle/description from src/i18n/ui.ts instead of static ones above
     i18nTitle: false, // true, false
     // author name
