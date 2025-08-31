@@ -1,4 +1,4 @@
-media: src/content/posts/_images
+media: src/assets/images
 
 content:
   - name: posts
